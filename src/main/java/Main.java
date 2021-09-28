@@ -86,4 +86,19 @@ public class Main {
         registrarHoraLlegada(trabajador);
         System.out.println("Ingreso registrado.");
     }
+
+    public static String[] leerTrabajadores() {
+        String textoTrabajadores = "";
+        try {
+            File archivo = new File("trabajadoresEmpresa.txt");
+            FileReader fr = new FileReader(archivo);
+            BufferedReader br = new BufferedReader(fr);
+            textoTrabajadores = br.readLine();
+        } catch (Exception e) {
+            System.out.println("Documento no disponible, por favor contactar con administrador.");
+        }
+        String[] trabajadores = textoTrabajadores.split(",");
+        //System.out.println(Arrays.toString(trabajadores)); //Imprime lista de trabajadores
+        return trabajadores;
+    }
 }
