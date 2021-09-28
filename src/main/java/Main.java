@@ -80,4 +80,10 @@ public class Main {
             System.out.println("");
         }
     }
+    public static void ingresarLlegadaTrabajador(){
+        String[] trabajadores = leerTrabajadores();
+        String trabajador = obtenerTrabajadores(trabajadores);
+        registrarHoraLlegada(trabajador);
+        System.out.println("Ingreso registrado.");
+    }
 }
