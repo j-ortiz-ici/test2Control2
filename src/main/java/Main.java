@@ -1,3 +1,9 @@
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Main {
@@ -100,5 +106,24 @@ public class Main {
         String[] trabajadores = textoTrabajadores.split(",");
         //System.out.println(Arrays.toString(trabajadores)); //Imprime lista de trabajadores
         return trabajadores;
+    }
+    public static void registrarHoraLlegada(String trabajador) {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
+        LocalTime localTime = LocalTime.now();
+        DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("uuuu/MM/dd");
+        LocalDate localDate = LocalDate.now();
+        String registroLlegada = trabajador + " " + dtf2.format(localDate)+" "+dtf.format(localTime) + "\n";
+        try {
+            File file = new File("ingresoTrabajadores.txt");
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            FileWriter fw = new FileWriter(file, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(registroLlegada);
+            bw.close();
+        } catch (Exception e) {
+            System.out.println("Error al ingresar hora de llegada, favor contactar con administrador.");
+        }
     }
 }
