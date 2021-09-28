@@ -101,4 +101,18 @@ public class Main {
         registrarHoraLlegada(trabajador);
         System.out.println("Ingreso registrado.");
     }
+    public static String obtenerTrabajadores(String[] trabajadores) {
+        boolean validarTrabajador = true;
+        String trabajador = "";
+        do {
+            String textoTrabajador = getInput("Ingrese un trabajador");
+            for (String trabajadoresList : trabajadores) {
+                if (textoTrabajador.equalsIgnoreCase(trabajadoresList)) {
+                    trabajador = trabajadoresList;
+                    validarTrabajador = false;
+                }
+            }
+        } while (validarTrabajador);
+        return trabajador;
+    }
 }
