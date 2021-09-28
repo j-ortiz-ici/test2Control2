@@ -95,4 +95,10 @@ public class Main {
         //System.out.println(Arrays.toString(trabajadores)); //Imprime lista de trabajadores
         return trabajadores;
     }
+    public static void ingresarLlegadaTrabajador(){
+        String[] trabajadores = leerTrabajadores();
+        String trabajador = obtenerTrabajadores(trabajadores);
+        registrarHoraLlegada(trabajador);
+        System.out.println("Ingreso registrado.");
+    }
 }
