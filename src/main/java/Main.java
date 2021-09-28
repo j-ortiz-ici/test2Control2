@@ -78,9 +78,6 @@ public class Main {
         }
         else if (respuesta.contains("n")){
             System.out.println("");
-            System.out.println("Hola soy yo");
-            System.out.println("Hola soy yo de nuevo");
         }
     }
-
 }
